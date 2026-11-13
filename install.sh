@@ -14,6 +14,11 @@
 # three debugging rounds went into a script that was innocent, for want of that one fact.
 set -eu
 
+# VS Code runs everything it starts in the container (this script included) with umask 0000,
+# so the clones below would come out world-writable and oh-my-zsh refuses to load
+# completions from them ("Insecure completion-dependent directories").
+umask 022
+
 dotfiles_dir="$(cd "$(dirname "$0")" && pwd)"
 log="$dotfiles_dir/install.log"
 exec >"$log" 2>&1
