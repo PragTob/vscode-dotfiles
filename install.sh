@@ -34,4 +34,7 @@ clone https://github.com/ohmyzsh/ohmyzsh "$zsh_dir"
 clone https://github.com/zsh-users/zsh-autosuggestions "$zsh_dir/custom/plugins/zsh-autosuggestions"
 clone https://github.com/zsh-users/zsh-syntax-highlighting "$zsh_dir/custom/plugins/zsh-syntax-highlighting"
 
+# claude really likes to have `gh` around
+sudo apt-get update && sudo apt-get install -y gh
+
 ln -sfn "$dotfiles_dir/.zshrc" "$HOME/.zshrc"
